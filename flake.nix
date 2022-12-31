@@ -2,6 +2,7 @@
   description = "Hydra";
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-22.11-darwin";
+
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
