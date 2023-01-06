@@ -9,6 +9,15 @@
       VISUAL = "vim";
     };
 
+    shellAliases = {
+      gst = "git status";
+      gsw = "git switch";
+      gcam = "git commit -a -m";
+      gp = "git push";
+      gpl = "git pull";
+      gd = "git diff";
+    };
+
     systemPackages = with pkgs;
       [
         vim
@@ -37,7 +46,9 @@
   # Auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = true;
 
-  programs.zsh.enable = true;
+  programs.zsh = {
+    enable = true;
+  };
 
   # Used for backwards compatibility, please read the changelog before changing.
   # $ darwin-rebuild changelog
