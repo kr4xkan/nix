@@ -1,29 +1,49 @@
 { config, pkgs, ... }:
 
 {
-  # List packages installed in system profile. To search by name, run:
-  # $ nix-env -qaP | grep wget
-  environment.systemPackages = with pkgs;
-    [
-      vim
-      neofetch
-      iterm2
-    ];
+  environment = {
+    shells = [ pkgs.zsh ];
 
-  # Use a custom configuration.nix location.
-  # $ darwin-rebuild switch -I darwin-config=$HOME/.config/nixpkgs/darwin/configuration.nix
-  # environment.darwinConfig = "$HOME/.config/nixpkgs/darwin/configuration.nix";
+    variables = {
+      EDITOR = "vim";
+      VISUAL = "vim";
+    };
+
+    systemPackages = with pkgs;
+      [
+        vim
+        neofetch
+        iterm2
+      ];
+  };
+
+  users.users.kr4xkan = {
+    home = "/Users/kr4xkan";
+    shell = pkgs.zsh;
+  };
+
+  fonts = {
+    fontDir.enable = true;
+    fonts = with pkgs; [
+      source-code-pro
+      (nerdfonts.override {
+        fonts = [
+          "FiraCode"
+        ];
+      })
+    ];
+  };
 
   # Auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = true;
-  nix.package = pkgs.nix;
 
-  # Create /etc/zshrc that loads the nix-darwin environment.
   programs.zsh.enable = true;
 
   # Used for backwards compatibility, please read the changelog before changing.
   # $ darwin-rebuild changelog
-  system.stateVersion = 4;
+  system = {
+    stateVersion = 4;
+  };
 
   nix = {
     package = pkgs.nixFlakes;
