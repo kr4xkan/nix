@@ -9,15 +9,6 @@
       VISUAL = "vim";
     };
 
-    shellAliases = {
-      gst = "git status";
-      gsw = "git switch";
-      gcam = "git commit -a -m";
-      gp = "git push";
-      gpl = "git pull";
-      gd = "git diff";
-    };
-
     systemPackages = with pkgs;
       [
         vim
