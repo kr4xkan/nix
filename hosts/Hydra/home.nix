@@ -29,11 +29,21 @@
       enable = true;
       enableCompletion = true;
       enableSyntaxHighlighting = true;
+      enableAutosuggestions = true;
       history.size = 10000;
 
       initExtra = ''
         eval "$(${pkgs.starship}/bin/starship init zsh)"
       '';
+
+      oh-my-zsh = {
+        enable = true;
+        plugins = [
+          "git"
+          "sudo"
+          "battery"
+        ];
+      };
     };
     neovim = {
       enable = true;
