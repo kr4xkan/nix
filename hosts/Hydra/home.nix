@@ -4,6 +4,9 @@
   home = {
     packages = with pkgs; [
       exa bat tealdeer
+
+      # For neovim
+      lolcat
     ];
     stateVersion = "22.11";
     

@@ -14,8 +14,11 @@
         vim
         neofetch
         iterm2
+        man-pages man-pages-posix
       ];
   };
+
+  documentation.man.enable = true;
 
   users.users.kr4xkan = {
     home = "/Users/kr4xkan";
