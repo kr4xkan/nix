@@ -36,7 +36,13 @@
       history.size = 10000;
 
       initExtra = ''
+        # Custom envs
         eval "$(${pkgs.starship}/bin/starship init zsh)"
+        eval "$(/opt/homebrew/bin/brew shellenv)"
+
+        # Custom paths
+        export PATH="/Users/kr4xkan/.cargo/bin:$PATH"
+        # export PKG_CONFIG_PATH="/opt/homebrew/opt/<package>/lib/pkgconfig"
       '';
 
       oh-my-zsh = {

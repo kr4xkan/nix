@@ -14,6 +14,7 @@
         vim
         neofetch
         iterm2
+        rustup
         man-pages man-pages-posix
       ];
   };
@@ -42,6 +43,13 @@
 
   programs.zsh = {
     enable = true;
+  };
+
+  # Homebrew
+  homebrew = {
+    enable = true;
+    brews = [ ];
+    onActivation.cleanup = "uninstall";
   };
 
   # Used for backwards compatibility, please read the changelog before changing.
