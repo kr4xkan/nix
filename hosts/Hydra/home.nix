@@ -43,6 +43,9 @@
         # Custom paths
         export PATH="/Users/kr4xkan/.cargo/bin:$PATH"
         # export PKG_CONFIG_PATH="/opt/homebrew/opt/<package>/lib/pkgconfig"
+
+        # Any Nix Shell
+        ${pkgs.any-nix-shell}/bin/any-nix-shell zsh --info-right | source /dev/stdin
       '';
 
       oh-my-zsh = {
