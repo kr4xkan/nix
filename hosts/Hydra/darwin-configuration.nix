@@ -49,6 +49,9 @@
   homebrew = {
     enable = true;
     brews = [ ];
+    masApps = {
+        Termius = 1176074088;
+    };
     onActivation.cleanup = "uninstall";
   };
 
