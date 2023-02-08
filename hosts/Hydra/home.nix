@@ -5,6 +5,11 @@
     packages = with pkgs; [
       exa bat tealdeer
 
+      # Dev Tools
+      jetbrains.idea-ultimate
+      java-language-server
+      maven
+
       # For neovim
       lolcat
     ];

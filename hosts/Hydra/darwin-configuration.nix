@@ -49,6 +49,7 @@
   homebrew = {
     enable = true;
     brews = [ ];
+    casks = [ ];
     masApps = {
         Termius = 1176074088;
     };
@@ -60,6 +61,8 @@
   system = {
     stateVersion = 4;
   };
+
+  nixpkgs.config.allowUnfree = true;
 
   nix = {
     package = pkgs.nixFlakes;
