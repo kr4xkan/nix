@@ -6,9 +6,16 @@
       exa bat tealdeer
 
       # Dev Tools
+      ## Other
+      vscode
+
+      ## Java
       jetbrains.idea-ultimate
       java-language-server
       maven
+
+      ## JS
+      nodejs
 
       # For neovim
       lolcat

@@ -49,9 +49,12 @@
   homebrew = {
     enable = true;
     brews = [ ];
-    casks = [ ];
+    casks = [
+        "insomnia"
+    ];
     masApps = {
         Termius = 1176074088;
+        Goodnotes = 1444383602;
     };
     onActivation.cleanup = "uninstall";
   };
