@@ -10,14 +10,10 @@
     };
 
     systemPackages = with pkgs;
-      [
-        vim
-        neofetch
-        iterm2
-        rustup
-        man-pages man-pages-posix
-      ];
+      [ neofetch ];
   };
+
+  programs.zsh.enable = true;
 
   documentation.man.enable = true;
 
@@ -41,20 +37,22 @@
   # Auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = true;
 
-  programs.zsh = {
-    enable = true;
-  };
-
   # Homebrew
   homebrew = {
     enable = true;
-    brews = [ ];
+    brews = [
+        "clang-format"
+        "cmake"
+        "libiconv"
+    ];
     casks = [
         "insomnia"
+        "tunnelblick"
+        "cyberduck"
+		"iterm2"
     ];
     masApps = {
         Termius = 1176074088;
-        Goodnotes = 1444383602;
     };
     onActivation.cleanup = "uninstall";
   };

@@ -3,24 +3,21 @@
 {
   home = {
     packages = with pkgs; [
-      exa bat tealdeer
+      eza bat tealdeer ripgrep
 
       # Dev Tools
       ## Other
       vscode
-
-      ## Java
-      jetbrains.idea-ultimate
-      java-language-server
-      maven
+      watchman
+      python3
+      gcc
 
       ## JS
-      nodejs
-
-      # For neovim
-      lolcat
+      # nodejs
+      # nodePackages.pnpm
+      # nodePackages.yarn
     ];
-    stateVersion = "22.11";
+    stateVersion = "24.05";
     
     shellAliases = {
       gst = "git status";
@@ -29,12 +26,12 @@
       gp = "git push";
       gpl = "git pull";
       gd = "git diff";
-      ll = "exa -l";
-      la = "exa -la";
-      l = "exa";
-      ls = "exa";
-      lt = "exa --tree --level=3";
-      lta = "exa --tree --all";
+      ll = "eza -l";
+      la = "eza -la";
+      l = "eza";
+      ls = "eza";
+      lt = "eza --tree --level=3";
+      lta = "eza --tree --all";
       cat = "bat --style plain";
     };
   };
@@ -43,8 +40,8 @@
     zsh = {
       enable = true;
       enableCompletion = true;
-      enableSyntaxHighlighting = true;
-      enableAutosuggestions = true;
+      syntaxHighlighting.enable = true;
+      autosuggestion.enable = true;
       history.size = 10000;
 
       initExtra = ''
@@ -58,6 +55,14 @@
 
         # Any Nix Shell
         ${pkgs.any-nix-shell}/bin/any-nix-shell zsh --info-right | source /dev/stdin
+        
+        # NVM
+        export NVM_DIR="$HOME/.nvm"
+        [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+        [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+
+        # Rust/Cargo env
+        export LIBRARY_PATH=$LIBRARY_PATH:$(brew --prefix)/lib:$(brew --prefix)/opt/libiconv/lib
       '';
 
       oh-my-zsh = {
@@ -66,8 +71,14 @@
           "git"
           "sudo"
           "battery"
+          "direnv"
         ];
       };
+    };
+    direnv = {
+      enable = true;
+      enableBashIntegration = true; # see note on other shells below
+      nix-direnv.enable = true;
     };
     neovim = {
       enable = true;
