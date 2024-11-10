@@ -1,6 +1,10 @@
 { config, pkgs, ... }:
 
 {
+  imports = [
+    ./packages/tidal.nix
+  ];
+
   environment = {
     shells = [ pkgs.zsh ];
 
