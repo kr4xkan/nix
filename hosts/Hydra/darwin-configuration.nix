@@ -2,7 +2,6 @@
 
 {
   imports = [
-    ./packages/tidal.nix
   ];
 
   environment = {
@@ -13,8 +12,10 @@
       VISUAL = "vim";
     };
 
-    systemPackages = with pkgs;
-      [ neofetch ];
+    systemPackages = [
+      pkgs.neofetch
+      (pkgs.callPackage ./packages/tidal.nix {})
+    ];
   };
 
   programs.zsh.enable = true;
