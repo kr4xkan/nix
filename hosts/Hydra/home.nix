@@ -11,6 +11,7 @@
       watchman
       python3
       gcc
+      ffmpeg
 
       ## JS
       # nodejs
